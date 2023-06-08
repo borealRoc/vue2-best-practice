@@ -6,6 +6,9 @@ import './plugins/element.js'
 
 Vue.config.productionTip = false
 
+// 自动导入所有svg图标
+import '@/icons'
+
 new Vue({
   router,
   store,
