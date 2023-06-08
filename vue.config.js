@@ -11,6 +11,15 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     port,
+    proxy: {
+      '/dev/api': {
+        target: `http://127.0.0.1:1000/`,
+        changeOrigin: true,
+        pathRewrite: {
+          ["^" + '/dev/api']: ""
+        }
+      }
+    }
   },
   configureWebpack: {
     name: title
