@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav>
+    <nav v-if="hasLogin">
       <router-link to="/"><svg-icon iconName="home"></svg-icon></router-link> |
       <router-link to="/about"><svg-icon iconName="about"></svg-icon></router-link>
     </nav>
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import API from './apis';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
-  async created () {
-    await API.user.test()
+  computed: {
+    ...mapGetters(['hasLogin'])
   },
 }
 </script>

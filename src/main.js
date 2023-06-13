@@ -10,6 +10,8 @@ Vue.config.productionTip = false
 import '@/icons'
 // 自动注册'components/**/index.vue'目录下的自定义组件为全局组件
 import '@/components'
+// 全局路由守卫
+import '@/router/permission'
 
 new Vue({
   router,
