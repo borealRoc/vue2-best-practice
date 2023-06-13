@@ -9,9 +9,13 @@
 </template>
 
 <script>
+import API from './apis';
 
 export default {
   name: 'app',
+  async created () {
+    await API.user.test()
+  },
 }
 </script>
 

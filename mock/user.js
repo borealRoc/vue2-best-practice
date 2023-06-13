@@ -14,7 +14,7 @@ app.post("/user/login", (req, res) => {
 
     if (username === "admin" || username === 'editor') {
         res.json({
-            code: 200,
+            code: 1,
             data: username
         });
     } else {
@@ -28,8 +28,15 @@ app.post("/user/login", (req, res) => {
 app.get("/user/roles", (req, res) => {
     const roles = req.headers['authorization'].split(' ')[1] === 'admin' ? ["admin"] : ["editor"];
     res.json({
-        code: 200,
+        code: 1,
         data: roles
+    });
+});
+
+app.get("/user/test", (req, res) => {
+    res.json({
+        code: 1,
+        data: 'test'
     });
 });
 

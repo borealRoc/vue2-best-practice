@@ -1,11 +1,11 @@
 import Axios from "axios";
 import store from "@/store";
-import env from '@/env'
+import config from '@/config'
 import { MessageBox, Message } from "element-ui";
 
 // 创建axios实例
 const axios = Axios.create({
-    baseURL: env.apiBase, // url基础地址，解决不同数据源url变化问题
+    baseURL: config.apiBase, // url基础地址，解决不同数据源url变化问题
     timeout: 5000, // 超时
     // withCredentials: true, // 跨域时若要发送cookies需设置该选项
 });
