@@ -6,5 +6,4 @@ function initEnv() {
     }
 }
 const config = initEnv()
-console.log('config', config)
 export default config

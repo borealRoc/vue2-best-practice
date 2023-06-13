@@ -6,6 +6,9 @@ const user = {
     },
     getUserRoles() {
         return axios.get('/user/roles')
+    },
+    test() {
+        return axios.get('/user/test')
     }
 }
 
