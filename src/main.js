@@ -12,6 +12,8 @@ import '@/icons'
 import '@/components'
 // 全局路由守卫
 import '@/router/permission'
+// 注册自定义的指令
+import '@/directives'
 
 new Vue({
   router,

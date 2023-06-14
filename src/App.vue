@@ -2,7 +2,9 @@
   <div id="app">
     <nav v-if="hasLogin">
       <router-link to="/"><svg-icon iconName="home"></svg-icon></router-link> |
-      <router-link to="/about"><svg-icon iconName="about"></svg-icon></router-link>
+      <router-link to="/about" v-permission="['admin', 'editor']"><svg-icon iconName="about"></svg-icon></router-link> | 
+      <router-link to="/admin" v-permission="['admin']"><svg-icon iconName="admin"></svg-icon></router-link>
+      <router-link to="/editor" v-permission="['editor']"><svg-icon iconName="editor"></svg-icon></router-link>
     </nav>
     <router-view />
   </div>
