@@ -9,6 +9,7 @@ const title = 'vue2项目最佳实践'
 
 module.exports = defineConfig({
   transpileDependencies: true,
+
   devServer: {
     port,
     proxy: {
@@ -21,9 +22,11 @@ module.exports = defineConfig({
       }
     }
   },
+
   configureWebpack: {
     name: title
   },
+
   chainWebpack(config) {
     // 配置项目原本svg规则排除自定义的“src/icons”目录下的svg文件
     // {
@@ -37,5 +40,12 @@ module.exports = defineConfig({
     // 新增 icons 规则，设置 svg-sprite-loader 处理 icons 目录中的 svg 图标
     config.module.rule('icons').test(/\.svg$/).include.add(resolve("src/icons")).end()
       .use('svg-sprite-loader').loader('svg-sprite-loader').options({ symbolId: 'icon-[name]' })
+  },
+
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [resolve("src/style/index.scss")]
+    }
   }
 })
