@@ -17,6 +17,12 @@ export default new Vuex.Store({
     },
     hasLogin(state) {
       return !!state.user.token
+    },
+    fullRoutes(state) {
+      return state.permission.fullRoutes
+    },
+    username(state) {
+      return state.user.token
     }
   },
   mutations: {

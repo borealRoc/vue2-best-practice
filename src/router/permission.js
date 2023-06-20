@@ -2,6 +2,7 @@ import router from "@/router";
 import store from "@/store"
 import whiteList from "./whiteList";
 import { Message } from "element-ui";
+import errorRoutes from "./errorRoutes";
 
 // 全局路由守卫
 // 一、已登录
@@ -32,8 +33,11 @@ router.beforeEach(async (to, from, next) => {
                     const { roles } = await store.dispatch('user/getUserRoles')
                     const accessedRoutes = await store.dispatch('permission/generateRoutes', roles)
                     for (let i = 0; i < accessedRoutes.length; i++) {
+                        // 新增动态路由
                         router.addRoute(accessedRoutes[i])
                     }
+                    // 新增404页面路由
+                    router.addRoute(errorRoutes[0])
                     next({ ...to, replace: true })
                 } catch (error) {
                     console.log('error', error)

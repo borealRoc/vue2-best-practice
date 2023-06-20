@@ -1,5 +1,6 @@
 import constRoutes from '@/router/constRoutes'
 import asyncRoutes from '@/router/asyncRoutes'
+import errorRoutes from '@/router/errorRoutes';
 
 export default {
     namespaced: true,
@@ -10,7 +11,7 @@ export default {
     mutations: {
         setRoutes: (state, routes) => {
             state.asyncRoutes = routes;
-            state.fullRoutes = constRoutes.concat(routes);
+            state.fullRoutes = [...constRoutes, ...routes, ...errorRoutes];
         }
     },
     actions: {
