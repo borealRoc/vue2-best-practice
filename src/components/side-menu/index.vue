@@ -1,9 +1,9 @@
 <template>
     <div class="side-menu-comp">
-        <el-menu :text-color="elMenuAttribute.textColor" :active-text-color="elMenuAttribute.activeTextColor"
-            :unique-opened="elMenuAttribute.uniqueOpened" :router="elMenuAttribute.router" :default-active="defaultActive">
-            <side-menu-item v-for="(r) in sideMenuRoutes" :key="r.path" :item="r" />
-        </el-menu>
+<el-menu :text-color="elMenuAttribute.textColor" :active-text-color="elMenuAttribute.activeTextColor"
+    :unique-opened="elMenuAttribute.uniqueOpened" :router="elMenuAttribute.router" :default-active="defaultActive">
+    <side-menu-item v-for="(r) in sideMenuRoutes" :key="r.path" :item="r" />
+</el-menu>
     </div>
 </template>
 
@@ -34,7 +34,6 @@ export default {
             const target = res.findIndex(item => item.name === 'layout')
             if (target > -1) {
                 res = res[target].children
-                res = res.map(item => item)
             }
             return res
         },
